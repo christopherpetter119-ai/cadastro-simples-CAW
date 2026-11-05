@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro Simples</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Biblioteca oficial do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <section id="tela-login" class="login-container">
+
+        <div class="login-card">
+
+            <div class="logo">CS</div>
+
+            <h1>Cadastro Simples</h1>
+
+            <p class="subtitulo">
+                Entre para acessar seu painel de contatos.
+            </p>
+
+            <form id="form-login">
+
+                <label for="login-email">E-mail</label>
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <label for="login-senha">Senha</label>
+                <input
+                    type="password"
+                    id="login-senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <button type="submit" class="btn-principal">
+                    Entrar
+                </button>
+
+                <p id="mensagem-login" class="mensagem"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAINEL PRINCIPAL -->
+    <section id="tela-sistema" class="sistema" hidden>
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="marca">
+                <div class="logo">CS</div>
+                <h2>Cadastro Simples</h2>
+            </div>
+
+            <nav>
+                <a href="#inicio" class="menu-ativo">
+                    <span>▦</span> Painel
+                </a>
+
+                <a href="#cadastro">
+                    <span>＋</span> Novo cadastro
+                </a>
+
+                <a href="#contatos">
+                    <span>☷</span> Contatos
+                </a>
+
+                <a href="#relatorio">
+                    <span>▤</span> Relatório
+                </a>
+            </nav>
+
+            <button id="btn-sair" class="btn-sair">
+                ↪ Sair da conta
+            </button>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo">
+
+            <header class="topo">
+                <div>
+                    <h1>Painel de controle</h1>
+                    <p>Gerencie seus contatos de maneira simples.</p>
+                </div>
+
+                <div class="usuario">
+                    <div class="avatar">U</div>
+                    <span id="usuario-email">Usuário</span>
+                </div>
+            </header>
+
+
+            <!-- RESUMO -->
+            <section id="inicio">
+
+                <div class="resumo">
+                    <div class="card-resumo">
+                        <span>Total de contatos</span>
+                        <strong id="total-contatos">0</strong>
+                        <small>Registros cadastrados</small>
+                    </div>
+
+                    <div class="card-resumo">
+                        <span>Última consulta</span>
+                        <strong id="status-sistema">Online</strong>
+                        <small>Status do sistema</small>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <section id="cadastro" class="painel">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Novo cadastro</h2>
+                        <p>Preencha os dados do contato.</p>
+                    </div>
+                </div>
+
+                <form id="form-contato">
+
+                    <input type="hidden" id="contato-id">
+
+                    <div class="form-grid">
+
+                        <div class="campo">
+                            <label for="nome">Nome completo</label>
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Digite o nome"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="exemplo@email.com"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone</label>
+                            <input
+                                type="tel"
+                                id="telefone"
+                                placeholder="(00) 00000-0000"
+                                maxlength="30"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="botoes-form">
+
+                        <button
+                            type="submit"
+                            id="btn-salvar"
+                            class="btn-principal"
+                        >
+                            Salvar contato
+                        </button>
+
+                        <button
+                            type="button"
+                            id="btn-cancelar"
+                            class="btn-secundario"
+                        >
+                            Limpar
+                        </button>
+
+                    </div>
+
+                    <p id="mensagem-contato" class="mensagem"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- LISTA DE CONTATOS -->
+            <section id="contatos" class="painel">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Meus contatos</h2>
+                        <p>Consulte e altere seus registros.</p>
+                    </div>
+                </div>
+
+                <div class="barra-pesquisa">
+
+                    <input
+                        type="search"
+                        id="pesquisa"
+                        placeholder="Pesquisar por nome, e-mail ou telefone..."
+                    >
+
+                    <button id="btn-pesquisar" class="btn-principal">
+                        Pesquisar
+                    </button>
+
+                </div>
+
+                <div class="tabela-container">
+
+                    <table id="tabela-contatos">
+
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Telefone</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="lista-contatos">
+                            <tr>
+                                <td colspan="4">
+                                    Nenhum contato carregado.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p id="mensagem-lista" class="mensagem"></p>
+
+            </section>
+
+
+            <!-- RELATÓRIO -->
+            <section id="relatorio" class="painel">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Relatório de contatos</h2>
+                        <p>Imprima ou salve seus registros em PDF.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="btn-imprimir"
+                        class="btn-principal"
+                    >
+                        Imprimir relatório
+                    </button>
+
+                </div>
+
+                <div id="area-relatorio">
+
+                    <h2>Relatório de Contatos</h2>
+
+                    <p id="data-relatorio"></p>
+
+                    <p id="total-relatorio">
+                        Total de registros: 0
+                    </p>
+
+                    <div class="tabela-container">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="lista-relatorio">
+                                <tr>
+                                    <td colspan="3">
+                                        Nenhum registro encontrado.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer>
+                Cadastro Simples © 2026
+            </footer>
+
+        </main>
+
+    </section>
+
+
+    <!-- CONFIGURAÇÃO E JAVASCRIPT -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

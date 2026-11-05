@@ -1,0 +1,621 @@
+
+/* =====================================
+   CONFIGURAÇÕES GERAIS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fb;
+    color: #263248;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+/* =====================================
+   TELA DE LOGIN
+===================================== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8efff, #f7f9ff);
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(30, 50, 90, 0.10);
+    text-align: center;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 auto 18px;
+}
+
+.login-card h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #8290a5;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.login-card form {
+    text-align: left;
+}
+
+
+/* =====================================
+   CAMPOS E FORMULÁRIOS
+===================================== */
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #344054;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce2ec;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 20px;
+    background: #fff;
+    color: #263248;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+.btn-principal {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-principal:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-secundario {
+    background: #edf1f7;
+    color: #344054;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-secundario:hover {
+    background: #dfe6f0;
+}
+
+.login-card .btn-principal {
+    width: 100%;
+    margin-top: 5px;
+}
+
+
+/* =====================================
+   PAINEL PRINCIPAL
+===================================== */
+
+.sistema {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #172b4d;
+    color: white;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+.marca .logo {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    background: #3b82f6;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.marca h2 {
+    font-size: 16px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.sidebar nav a span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.menu-ativo {
+    background: #29466e;
+    color: white;
+}
+
+.btn-sair {
+    margin-top: auto;
+    background: transparent;
+    border: 1px solid #49617f;
+    color: white;
+    padding: 13px;
+    border-radius: 8px;
+}
+
+.btn-sair:hover {
+    background: #29466e;
+}
+
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+
+.conteudo {
+    flex: 1;
+    padding: 35px;
+    min-width: 0;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.topo h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.topo p,
+.titulo-secao p {
+    color: #8290a5;
+    font-size: 14px;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #536178;
+    overflow-wrap: anywhere;
+}
+
+.avatar {
+    background: #dbeafe;
+    color: #2563eb;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+
+/* =====================================
+   CARTÕES DE RESUMO
+===================================== */
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card-resumo {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(30, 50, 90, 0.04);
+}
+
+.card-resumo span {
+    display: block;
+    color: #8290a5;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card-resumo strong {
+    display: block;
+    font-size: 28px;
+    color: #2563eb;
+    margin-bottom: 8px;
+}
+
+.card-resumo small {
+    color: #98a2b3;
+}
+
+
+/* =====================================
+   PAINÉIS E SEÇÕES
+===================================== */
+
+.painel {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(30, 50, 90, 0.04);
+    scroll-margin-top: 20px;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.titulo-secao h2 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+
+/* =====================================
+   FORMULÁRIO DE CONTATOS
+===================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+}
+
+.campo:first-child {
+    grid-column: span 2;
+}
+
+.campo input {
+    margin-bottom: 20px;
+}
+
+.botoes-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+/* =====================================
+   PESQUISA
+===================================== */
+
+.barra-pesquisa {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.barra-pesquisa input {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+
+/* =====================================
+   TABELAS
+===================================== */
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 580px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 14px;
+}
+
+th {
+    background: #f8faff;
+    color: #536178;
+    font-weight: 600;
+}
+
+td {
+    color: #536178;
+}
+
+td button {
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.btn-editar {
+    background: #e8f0ff;
+    color: #2563eb;
+}
+
+.btn-excluir {
+    background: #feecec;
+    color: #dc2626;
+}
+
+
+/* =====================================
+   MENSAGENS
+===================================== */
+
+.mensagem {
+    font-size: 13px;
+    margin-top: 12px;
+    color: #2563eb;
+}
+
+.mensagem.erro {
+    color: #dc2626;
+}
+
+.mensagem.sucesso {
+    color: #16a34a;
+}
+
+
+/* =====================================
+   RELATÓRIO
+===================================== */
+
+#area-relatorio {
+    padding: 20px 0;
+}
+
+#area-relatorio h2 {
+    margin-bottom: 12px;
+}
+
+#data-relatorio,
+#total-relatorio {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #98a2b3;
+    font-size: 13px;
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .conteudo {
+        padding: 25px 18px;
+    }
+
+    .marca h2 {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .sistema {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .marca {
+        margin-bottom: 15px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar nav a {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .btn-sair {
+        margin-top: 15px;
+    }
+
+    .conteudo {
+        padding: 20px 12px;
+    }
+
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo:first-child {
+        grid-column: span 1;
+    }
+
+    .titulo-secao {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .barra-pesquisa {
+        flex-direction: column;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+    }
+
+}
+
+
+/* =====================================
+   CONFIGURAÇÃO DE IMPRESSÃO
+===================================== */
+
+@media print {
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    #area-relatorio,
+    #area-relatorio * {
+        visibility: visible;
+    }
+
+    #area-relatorio {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    #area-relatorio table {
+        min-width: 100%;
+    }
+
+    #area-relatorio th,
+    #area-relatorio td {
+        color: black;
+        border: 1px solid #ccc;
+    }
+
+    #area-relatorio th {
+        background: #eee !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+}
